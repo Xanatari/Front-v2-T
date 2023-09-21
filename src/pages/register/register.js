@@ -1,6 +1,6 @@
-import React from 'react'
 import axios from 'axios'
-import { useState } from 'react'
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function register(props) {
   let [authMode, setAuthMode] = useState("signin")
@@ -24,8 +24,8 @@ export default function register(props) {
   const { name, lastName, email, password, facultad, rol, especialidad, } = student;
 
   const onInputChange = (e) => {
-    setStudent({ ...user, [e.target.name]: e.target.value });
-    navigate("/home");
+    setStudent({ ...user, [e.target.name]: e.target.value, [e.target.lastName]: e.target.value });
+   
   };
 
   const handleSubmit = async (e) => {
@@ -40,6 +40,7 @@ export default function register(props) {
 
       // Restablecer los campos del formulario después de enviarlos, si es necesario
       e.target.reset();
+      navigate("/home");
     } catch (error) {
       // Manejar errores de la solicitud aquí, si es necesario
       console.error('Error al enviar la solicitud:', error);
@@ -107,6 +108,7 @@ export default function register(props) {
               value={name}
               className="form-control mt-1"
               placeholder="Pepito Pepo"
+              onChange={(e) => onInputChange(e)}
             />
           </div>
           <div className="form-group mt-3">
@@ -117,6 +119,7 @@ export default function register(props) {
               value={lastName}
               className="form-control mt-1"
               placeholder="Uribe Petro"
+              onChange={(e) => onInputChange(e)}
             />
           </div>
           <div className="form-group mt-3">
@@ -127,6 +130,7 @@ export default function register(props) {
               value={email}
               className="form-control mt-1"
               placeholder="Email Address"
+              onChange={(e) => onInputChange(e)}
             />
           </div>
           <div className="form-group mt-3">
@@ -137,6 +141,7 @@ export default function register(props) {
               value={password}
               className="form-control mt-1"
               placeholder="Password"
+              onChange={(e) => onInputChange(e)}
             />
           </div>
           <div className="form-group mt-3">
@@ -147,6 +152,7 @@ export default function register(props) {
               value={facultad}
               className="form-control mt-1"
               placeholder="Facultad"
+              onChange={(e) => onInputChange(e)}
             />
           </div>
           <div className="form-group mt-3">
@@ -157,6 +163,7 @@ export default function register(props) {
               value={rol}
               className="form-control mt-1"
               placeholder="Rol"
+              onChange={(e) => onInputChange(e)}
             />
           </div>
           <div className="form-group mt-3">
@@ -167,12 +174,16 @@ export default function register(props) {
               value={especialidad}
               className="form-control mt-1"
               placeholder="Especialidad"
+              onChange={(e) => onInputChange(e)}
             />
           </div>
           <div className="d-grid gap-2 mt-3">
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
+            <Link className="btn btn-outline-danger mx-2" to="/">
+              Cancel
+            </Link>
           </div>
           <p className="text-center mt-2">
             Forgot <a href="#">password?</a>
