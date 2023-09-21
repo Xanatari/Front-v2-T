@@ -14,25 +14,25 @@ export default function Home(props){
             <div className="Auth-form-content">
               <h3 className="Auth-form-title">Sign In</h3>
               <div className="text-center">
-                Not registered yet?{" "}
+              No te has registrado aun ?{" "}
                 <span className="link-primary" onClick={changeAuthMode}>
-                  Sign Up
+                  Registro a la Plataforma
                 </span>
               </div>
               <div className="form-group mt-3">
-                <label>Email address</label>
+                <label>Correo Institucional</label>
                 <input
                   type="email"
                   className="form-control mt-1"
-                  placeholder="Enter email"
+                  placeholder="Ingresa con tu correo intstitucional"
                 />
               </div>
               <div className="form-group mt-3">
-                <label>Password</label>
+                <label>Ingresa tu contraseña</label>
                 <input
                   type="password"
                   className="form-control mt-1"
-                  placeholder="Enter password"
+                  placeholder="Ingresa tu contraseña"
                 />
               </div>
               <div className="d-grid gap-2 mt-3">
@@ -41,7 +41,7 @@ export default function Home(props){
                 </button>
               </div>
               <p className="text-center mt-2">
-                Forgot <a href="#">password?</a>
+                Olvidaste tu contraseña <a href="#">Deseas Cambiarla ?</a>
               </p>
             </div>
           </form>
@@ -55,17 +55,25 @@ export default function Home(props){
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
-              Already registered?{" "}
+              No te has registrado aun ?{" "}
               <span className="link-primary" onClick={changeAuthMode}>
                 Sign In
               </span>
             </div>
             <div className="form-group mt-3">
-              <label>Full Name</label>
+              <label>Nombres</label>
               <input
-                type="email"
+                type="firtsName"
                 className="form-control mt-1"
-                placeholder="e.g Jane Doe"
+                placeholder="Tus nombres"
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Apellidos</label>
+              <input
+                type="lastName"
+                className="form-control mt-1"
+                placeholder="Tus Apellidos"
               />
             </div>
             <div className="form-group mt-3">
@@ -82,6 +90,31 @@ export default function Home(props){
                 type="password"
                 className="form-control mt-1"
                 placeholder="Password"
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Facultad</label>
+              <input
+                type="facultad"
+                className="form-control mt-1"
+                placeholder="Ingresa Tu facultad"
+              />
+            </div>
+            <div className="form-group mt-3">
+              <label>Rol</label>
+              <input
+                type="rol"
+                className="form-control mt-1"
+                placeholder="Ingresa tu rol"
+              />
+            </div>
+
+            <div className="form-group mt-3">
+              <label>especialidad</label>
+              <input
+                type="especialidad"
+                className="form-control mt-1"
+                placeholder="Que especialidad quieres ?"
               />
             </div>
             <div className="d-grid gap-2 mt-3">
