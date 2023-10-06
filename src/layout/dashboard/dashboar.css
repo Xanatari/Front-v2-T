@@ -1,0 +1,46 @@
+.contenedor {
+    display: flex;
+  }
+  
+  .navbar {
+    width: 20%;
+    position: relative;
+    background: #333;
+    height: 100vh;
+    color: white;
+    height: 100vh; 
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .perfil {
+    position: absolute; /* Posiciona absolutamente el contenedor de la imagen */
+    top: 20px; /* Ajusta la posición vertical de la imagen */
+    left: 50%; /* Coloca la imagen en el centro horizontal */
+    transform: translateX(-50%); /* Centra la imagen horizontalmente */
+    text-align: center; /* Centra el texto dentro del contenedor */
+  }
+  
+  .perfil img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .cajas-izquierda {
+    width: 40%;
+    padding: 20px;
+  }
+  
+  .cajas-derecha {
+    width: 40%;
+    padding: 20px;
+  }
+  
+  .caja-botones,
+  .caja-generar-portafolio,
+  .caja-titulo-boton,
+  .caja-titulo-texto {
+    margin-bottom: 20px;
+  }

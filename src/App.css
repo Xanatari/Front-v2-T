@@ -37,3 +37,9 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
+
+.btn-info{
+  font-size: 1.1rem;
+  margin: 40 px;
+  background-color: brown;
+}

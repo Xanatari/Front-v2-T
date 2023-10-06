@@ -25,6 +25,7 @@ export default function Home(props){
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [rol, setRol] = useState('');
   const [facultad, setFacultad] = useState('');
@@ -62,11 +63,45 @@ export default function Home(props){
     }
   };
 
+  const handleLogInSubmit = async (e) => {
+    e.preventDefault();
+
+    const credentials = {userName,password};
+  
+    const headers = {
+      'Content-Type': 'application/json', // Especifica el tipo de contenido si es necesario,
+    };
+
+    console.log("Cuerpo del JSON:", JSON.stringify(credentials));
+    console.log("Cabeceras:", headers);
+
+    try {
+      const response = await fetch('http://localhost:8080/users/credentials', {
+        method: 'POST',
+        body: JSON.stringify(credentials),  
+        headers: headers
+      })
+
+      if (response.ok) {
+        // La solicitud fue exitosa, puedes manejar la respuesta aquí
+        console.log('Solicitud POST exitosa');
+
+      } else {
+        // Manejar errores si la solicitud falla
+        console.error('Error en la solicitud POST');
+      }
+    } catch (error) {
+      console.error('Error en la solicitud POST:', error);
+    }
+  };
+
+  
+
   
     if (authMode === "signin") {
       return (
         <div className="Auth-form-container">
-          <form className="Auth-form">
+          <form className="Auth-form"  onSubmit={(e) => handleLogInSubmit(e)}>
             <div className="Auth-form-content">
               <h3 className="Auth-form-title">Sign In</h3>
               <div className="text-center">
@@ -79,8 +114,11 @@ export default function Home(props){
                 <label>Correo Institucional</label>
                 <input
                   type="email"
+                  name="userName"
+                  value={userName}
                   className="form-control mt-1"
                   placeholder="Ingresa con tu correo intstitucional"
+                  onChange={(e) => setUserName(e.target.value)}
                 />
               </div>
               <div className="form-group mt-3">
@@ -89,6 +127,9 @@ export default function Home(props){
                   type="password"
                   className="form-control mt-1"
                   placeholder="Ingresa tu contraseña"
+                  name="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
               <div className="d-grid gap-2 mt-3">
