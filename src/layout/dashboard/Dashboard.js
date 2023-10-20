@@ -24,8 +24,8 @@ const StudentProfile = () => {
 const SkillsToEvaluate = () => {
   return (
     <div className="caja-botones text-center">
-      <h3 className="text-material">Estudiante de Ingeniería de Sistemas</h3>
-      <h3 className="text-material">Habilidades a Evaluar</h3>
+      <h3 className="text-material-navbar">Estudiante de Ingeniería de Sistemas</h3>
+      <h3 className="text-material-navbar">Habilidades a Evaluar</h3>
       <Button className="btn-material btn-material-primary" variant="light">Java</Button>{' '}
       <Button className="btn-material btn-material-primary" variant="light">SQL</Button>{' '}
       <Button className="btn-material btn-material-primary" variant="light">AWS</Button>{' '}
@@ -62,27 +62,35 @@ const Dashboard = () => {
           <SkillsToEvaluate />
           <PortfolioGenerator />
         </div>
-        
+      
         {/* Contenedor a la derecha */}
         <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center">
-          <Stack>
-            <Container className="mb-4">
-              <h2 className="text-material">Tecnologías a Evaluar</h2>
-              <button className="btn-material btn-material-primary">Acción 1</button>{' '}
-              <button className="btn-material btn-material-primary">Acción 2</button>
-            </Container>
-            <Container className="mt-5">
-              <h2 className="text-material">Combinación de lo que Quieres Evaluar</h2>
-              <button className="btn-material btn-material-primary">Botón 1</button>{' '}
-              <button className="btn-material btn-material-primary">Botón 2</button>{' '}
-            </Container>
-            <Container className="mt-5">
-              <h2 className="text-material">Resultados de tus Evaluaciones</h2>
-              <div className="p-2">Calificación 1</div>
-              <div className="p-2">Calificación 2</div>
-              <div className="p-2">Calificación 3</div>
-            </Container>
+
+          <Stack gap={3}>
+           
+              <Container className="border border-primary p-3">
+                <h2 className="text-material">Tecnologías a Evaluar</h2>
+                <button className="btn-material btn-material-primary">Acción 1</button>{' '}
+                <button className="btn-material btn-material-primary">Acción 2</button>
+              </Container>
+            
+            
+              <Container className="border border-primary p-3">
+                <h2 className="text-material">Combinación de lo que Quieres Evaluar</h2>
+                <button className="btn-material btn-material-primary">Botón 1</button>{' '}
+                <button className="btn-material btn-material-primary">Botón 2</button>{' '}
+              </Container>
+           
+        
+              <Container className="border border-primary p-3">
+                <h2 className="text-material">Resultados de tus Evaluaciones</h2>
+                <div className="p-2">Calificación 1</div>
+                <div className="p-2">Calificación 2</div>
+                <div className="p-2">Calificación 3</div>
+              </Container>
+           
           </Stack>
+          
         </div>
       </div>
     </div>
