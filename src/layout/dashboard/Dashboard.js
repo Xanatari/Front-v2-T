@@ -1,6 +1,10 @@
 import React from 'react';
-import { Button, Row, Card, Container, Stack, Image, Col } from 'react-bootstrap';
+import { Button, Row,  Container, Stack,  Col } from 'react-bootstrap';
 import './dashboar.css';
+import {Divider} from "@nextui-org/react";
+import {Image} from "@nextui-org/react";
+import {Card, CardBody} from "@nextui-org/react";
+
 
 const StudentProfile = () => {
   return (
@@ -8,23 +12,30 @@ const StudentProfile = () => {
       <Container className="h-100">
         <Row className="h-100">
           <Col xs={6} md={4} className="d-flex align-items-center justify-content-center">
-            <Image src="holder.js/171x180" roundedCircle />
+          <Image
+          width={300}
+          alt="NextUI hero Image"
+        src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+          />
           </Col>
         </Row>
       </Container>
-      <Card.Body>
-        <Card.Title className="mb-0">Nombre del Estudiante</Card.Title>
-        <Card.Subtitle className="mb-2 text-muted">Ingeniería de Sistemas</Card.Subtitle>
-      </Card.Body>
+      <Card>
+      <CardBody>
+        <p>Nombre del Estudiante</p>
+        <p>Ingeniería de Sistemas</p>
+      </CardBody>
+      </Card>
     </Card>
+    
   );
 };
 
 // Componente para las habilidades a evaluar
 const SkillsToEvaluate = () => {
   return (
-    <div className="caja-botones text-center">
-      <h3 className="text-material-navbar">Estudiante de Ingeniería de Sistemas</h3>
+    <div className="caja-botones text-center" >
+      <h3 className="text-material-navbar">Especialidad del Estudiante</h3>
       <h3 className="text-material-navbar">Habilidades a Evaluar</h3>
       <Button className="btn-material btn-material-primary" variant="light">Java</Button>{' '}
       <Button className="btn-material btn-material-primary" variant="light">SQL</Button>{' '}
@@ -69,24 +80,38 @@ const Dashboard = () => {
           <Stack gap={3}>
            
               <Container className="border border-primary p-3">
-                <h2 className="text-material">Tecnologías a Evaluar</h2>
+                <h2 className="text-material">Tecnologías o Lenguajes que quieres Evaluar</h2>
                 <button className="btn-material btn-material-primary">Acción 1</button>{' '}
                 <button className="btn-material btn-material-primary">Acción 2</button>
               </Container>
             
-            
+              <Divider className="my-5" />
               <Container className="border border-primary p-3">
-                <h2 className="text-material">Combinación de lo que Quieres Evaluar</h2>
+                <h2 className="text-material">Con que habilidades quieres evaluar</h2>
                 <button className="btn-material btn-material-primary">Botón 1</button>{' '}
                 <button className="btn-material btn-material-primary">Botón 2</button>{' '}
               </Container>
            
-        
+              <Divider className="my-5" />
               <Container className="border border-primary p-3">
                 <h2 className="text-material">Resultados de tus Evaluaciones</h2>
-                <div className="p-2">Calificación 1</div>
-                <div className="p-2">Calificación 2</div>
-                <div className="p-2">Calificación 3</div>
+                <Card>
+                  <CardBody>
+                  <p>Make beautiful websites regardless of your design experience.</p>
+                </CardBody>
+                </Card>
+                <Divider className="my-2" />
+                <Card>
+                  <CardBody>
+                  <p>Make beautiful websites regardless of your design experience.</p>
+                </CardBody>
+                </Card>
+                <Divider className="my-2" />
+                <Card>
+                  <CardBody>
+                  <p>Make beautiful websites regardless of your design experience.</p>
+                </CardBody>
+                </Card>
               </Container>
            
           </Stack>
