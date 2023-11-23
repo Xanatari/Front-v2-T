@@ -1,8 +1,23 @@
 import React from 'react';
+import { useState, useEffect} from 'react';
+
 import './dashboar.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+
+
+function dashboardEstudiante(){
+
+  const [data,setData] = useState(null);
+
+
+  useEffect(()=> {
+      fetch("http://localhost:8080/users/user-info/4")
+      .then((response) =>  response.json)
+      .then((data) => 
+        setData(data))
+  }, [] )
 
 const StudentProfile = () => {
   return (
@@ -23,8 +38,9 @@ const StudentProfile = () => {
       </CardHeader>
       <Divider />
       <CardBody>
-        <p>Nombre del Estudiante</p>
-        <p>Ingeniería de Sistemas</p>
+      <p>{data.data.nameLastName}</p>
+        <p>{data.data.facultad}</p>
+        <p>{data.data.espacialidad}</p>
       </CardBody>
 
     </Card>
@@ -70,9 +86,6 @@ const PortfolioGenerator = () => {
     </div>
   );
 };
-
-// Componente principal Dashboard
-const Dashboard = () => {
   return (
     <div className="container-fluid h-100">
       <div className="row h-100">
@@ -133,7 +146,8 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
+export default dashboardEstudiante;
 
-export default Dashboard;
+
