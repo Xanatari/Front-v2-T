@@ -10,7 +10,7 @@ export default function DashBoardEstudiante() {
 
   const [tech, setTechData] = useState([]);
 
-  const [habilidades, setHabilidades] = useState('');
+  const [habilidades, setHabilidades] = useState([]);
 
   useEffect(() => {
     const handleGetRequest = async () => {
@@ -196,8 +196,9 @@ export default function DashBoardEstudiante() {
               {tech.map((item) => (
                 <Button
                   key={item.id}
-                  className="btn-material btn-material-primary"
+                  className="custom-button"
                   style={{ marginRight: '10px', marginBottom: '10px' }}
+                  size="lg"
                 >
                   {item.nombre}
                 </Button>
@@ -210,8 +211,9 @@ export default function DashBoardEstudiante() {
               {habilidades.map((item) => (
                 <Button
                   key={item.id}
-                  className="btn-material btn-material-primary"
+                  className="custom-button"
                   style={{ marginRight: '10px', marginBottom: '10px' }}
+                  size="lg"
                 >
                   {item.nombre}
                 </Button>

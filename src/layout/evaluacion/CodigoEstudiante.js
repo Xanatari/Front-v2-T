@@ -74,7 +74,7 @@ const PortfolioGenerator = () => {
 
 const CodigoEstudiante = () => {
     return (
-        
+
         <div className="container-fluid h-100">
             <div className="row h-100">
 
@@ -87,24 +87,30 @@ const CodigoEstudiante = () => {
                 {/* Contenedor a la derecha */}
                 <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center">
 
-                
 
-                    <Container className="border border-primary p-3"  maxWidth="lg">
-                            
-                        <h2 className="text-material">Resultados de tus Evaluaciones</h2>
-                   
-                            <Textarea
-                                  label="Escribe tu solución en este campo"
-                                  placeholder="Escribe en este campo"
-                                  className="max-w-xs flex-grow"
-                                  minWidth="200px"
-                                  size="lg"
-                            />
-                     
-                        <Button size="lg">
-                            Large
-                        </Button>
-                    </Container>
+
+
+
+
+                    <h2 className="text-material">Resultados de tus Evaluaciones</h2>
+
+                    <Textarea
+                        label="Description"
+                        variant="bordered"
+                        placeholder="Enter your description"
+                        disableAnimation
+                        disableAutosize
+                        classNames={{
+                            base: "max-w-xs",
+                            input: "resize-y min-h-[40px]",
+                        }}
+                    />
+
+
+                    <Button size="lg">
+                        Large
+                    </Button>
+
 
                 </div>
             </div>

@@ -64,3 +64,22 @@
   .caja-titulo-texto {
     margin-bottom: 20px;
   }
+
+  .custom-button {
+    background-color: rgb(111, 76, 175); /* Color de fondo */
+    border: none; /* Elimina el borde */
+    color: white; /* Color del texto */
+    text-align: center; /* Alinea el texto al centro */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    transition-duration: 0.4s; /* Duración de la transición */
+  }
+  
+  .custom-button:hover {
+    background-color: rgb(111, 76, 175);  /* Cambia el color de fondo al pasar el ratón por encima */
+    color: white;
+  }
