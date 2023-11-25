@@ -21,6 +21,13 @@
     display: flex;
   }
   
+  .contenido-derecha {
+    border: 4px solid #a69bc4; /* Borde más grueso y color morado clarito */
+    border-radius: 15px; /* Bordes curvos */
+    background-color: #e1ddec; /* Fondo morado clarito */
+    padding: 35px; 
+    /* Espaciado interno */
+  }
   .navbar {
     width: 20%;
     position: relative;
@@ -31,6 +38,7 @@
     height: 100vh; 
     padding: 20px;
     box-sizing: border-box;
+    border-radius: 15px; 
   }
   
   .perfil {

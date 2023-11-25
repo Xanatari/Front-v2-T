@@ -86,12 +86,6 @@ const CodigoEstudiante = () => {
                 </div>
                 {/* Contenedor a la derecha */}
                 <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center">
-
-
-
-
-
-
                     <h2 className="text-material">Resultados de tus Evaluaciones</h2>
 
                     <Textarea

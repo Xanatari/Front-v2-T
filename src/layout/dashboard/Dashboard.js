@@ -143,13 +143,11 @@ export default function DashBoardEstudiante() {
 
       <Card className="text-center" style={{ width: '28rem', height: '230px', margin: 'auto' }}>
         <CardHeader className="overflow-visible py-2">
-          <Image
-            alt="nextui logo"
-            height={40}
-            radius="sm"
-            src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-            width={40}
-          />
+        <Image
+      width={200}
+      alt="NextUI hero Image"
+      src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+    />
         </CardHeader>
         <Divider />
         <CardBody>
@@ -162,9 +160,6 @@ export default function DashBoardEstudiante() {
 
     );
   };
-
-
-
   // Componente para las habilidades a evaluar
   const SkillsToEvaluate = () => {
     return (
@@ -218,13 +213,10 @@ export default function DashBoardEstudiante() {
         </div>
 
         {/* Contenedor a la derecha */}
-        <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center">
-
-
-
-          <Container className="border border-primary p-5" maxWidth="lg">
+        <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
+            <div className="p-5" style={{ maxWidth: 'auto' }}>
             <Box>
-              <h2 className="text-material">Tecnologías o Lenguajes que quieres Evaluar</h2>
+            <h2 className="text-material" style={{ marginBottom: '20px' }}>Tecnologías o Lenguajes que quieres Evaluar</h2>
               {tech.map((item) => (
                 <Button
                   key={item.id}
@@ -239,7 +231,7 @@ export default function DashBoardEstudiante() {
             <Divider className="my-5" />
 
             <Box>
-              <h2 className="text-material">Con que habilidades quieres evaluar</h2>
+            <h2 className="text-material" style={{ marginBottom: '20px' }}>Combina las habilidadeas a Evaluar</h2>
               {habilidades.map((item) => (
                 <Button
                   key={item.id}
@@ -258,6 +250,7 @@ export default function DashBoardEstudiante() {
 
           
             <Box>
+            <h2 className="text-material" style={{ marginBottom: '20px' }}>Resultados de tus pruebas anteriores </h2>
             {resusltados.map((item) => (
                  <Card>
                  <CardBody>
@@ -267,7 +260,7 @@ export default function DashBoardEstudiante() {
               ))}
             </Box>
 
-          </Container>
+          </div>
 
         </div>
       </div>
