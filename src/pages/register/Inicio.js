@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import Alert from 'react-bootstrap/Alert'
+import { Divider, CardHeader, Button, Input, Image, Card, CardBody } from "@nextui-org/react";
+import './inicio.css';
 
-
-export default function Home(props){
+export default function Home(props) {
   let [authMode, setAuthMode] = useState("signin")
-  
+
   const handleCloseAlert = () => {
     setShowAlert(false);
   };
@@ -35,8 +36,8 @@ export default function Home(props){
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newUsers = {name,lastName,email,password,rol,facultad,especialidad};
-  
+    const newUsers = { name, lastName, email, password, rol, facultad, especialidad };
+
     const headers = {
       'Content-Type': 'application/json', // Especifica el tipo de contenido si es necesario,
     };
@@ -67,8 +68,8 @@ export default function Home(props){
   const handleLogInSubmit = async (e) => {
     e.preventDefault();
 
-    const credentials = {userName,password};
-  
+    const credentials = { userName, password };
+
     const headers = {
       'Content-Type': 'application/json', // Especifica el tipo de contenido si es necesario,
     };
@@ -79,7 +80,7 @@ export default function Home(props){
     try {
       const response = await fetch('http://localhost:8080/users/credentials', {
         method: 'POST',
-        body: JSON.stringify(credentials),  
+        body: JSON.stringify(credentials),
         headers: headers
       })
 
@@ -96,59 +97,65 @@ export default function Home(props){
     }
   };
 
-  
 
-  
-    if (authMode === "signin") {
-      return (
-        <div className="Auth-form-container">
-          <form className="Auth-form"  onSubmit={(e) => handleLogInSubmit(e)}>
-            <div className="Auth-form-content">
-              <h3 className="Auth-form-title">Sign In</h3>
-              <div className="text-center">
-              No te has registrado aun ?{" "}
-                <span className="link-primary" onClick={changeAuthMode}>
-                  Registro a la Plataforma
-                </span>
-              </div>
-              <div className="form-group mt-3">
-                <label>Correo Institucional</label>
-                <input
-                  type="email"
-                  name="userName"
-                  value={userName}
-                  className="form-control mt-1"
-                  placeholder="Ingresa con tu correo intstitucional"
-                  onChange={(e) => setUserName(e.target.value)}
-                />
-              </div>
-              <div className="form-group mt-3">
-                <label>Ingresa tu contraseña</label>
-                <input
-                  type="password"
-                  className="form-control mt-1"
-                  placeholder="Ingresa tu contraseña"
-                  name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
-              <div className="d-grid gap-2 mt-3">
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
-              </div>
-              <p className="text-center mt-2">
-                Olvidaste tu contraseña <a href="#">Deseas Cambiarla ?</a>
-              </p>
-            </div>
-          </form>
-        </div>
-      )
-    }
-  
+
+
+  if (authMode === "signin") {
     return (
-      <div className="Auth-form-container">
+      <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
+        <form className="Auth-form" onSubmit={(e) => handleLogInSubmit(e)}>
+          <div className="Auth-form-content">
+            <h3 className="Auth-form-title">Sign In</h3>
+            <div className="text-center">
+              No te has registrado aun ?{" "}
+              <span className="link-primary" onClick={changeAuthMode}>
+                Registro a la Plataforma
+              </span>
+            </div>
+            <div className="form-group mt-3">
+              <Input
+                isClearable
+                type="email"
+                label="Correo Institucional"
+                variant="bordered"
+                placeholder="Ingresa con tu correo intstitucional"
+                defaultValue="usuario-estudiante@unipiloto.edu.co"
+                onClear={() => console.log("input cleared")}
+                className="max-w-xs"
+                name="userName"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
+             <Input
+                isClearable
+                label="Contraseña"
+                variant="bordered"
+                type="password"
+                className="max-w-xs"
+                placeholder="Ingresa tu contraseña"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <Divider />
+            <div className="d-grid gap-2 mt-3">
+              <Button type="submit" className="btn btn-primary" size="lg">
+                Submit
+              </Button>
+            </div>
+            <Divider />
+            <p className="text-center mt-2">
+              Olvidaste tu contraseña <a href="#">Deseas Cambiarla ?</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    )
+  }
+
+  return (
+    <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
       <form className="Auth-form" onSubmit={(e) => handleSubmit(e)}>
         <div className="Auth-form-content">
           <h3 className="Auth-form-title">Sign In</h3>
@@ -236,9 +243,9 @@ export default function Home(props){
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary">
+            <Button type="submit" className="btn btn-primary" size="lg">
               Submit
-            </button>
+            </Button>
           </div>
           <p className="text-center mt-2">
             Forgot <a href="#">password?</a>
@@ -251,5 +258,5 @@ export default function Home(props){
         </Alert>
       )}
     </div>
-    )
-  }
+  )
+}
