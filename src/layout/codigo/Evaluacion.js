@@ -1,12 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './evaluacion.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
-import Box from '@mui/material/Box';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
 
+
+export default function EvaluacionEstudiante() {
+
+const [resultado, setResultado] = useState(null);
+
+useEffect(() => {
+    const handleGetRequest = async () => {
+      const headers = {
+        'Content-Type': 'application/json', // Puedes especificar los headers si es necesario
+      };
+
+      try {
+        const response = await fetch('http://localhost:8080/pruebas/prueba/4?habilitie=AWS&tech=ALGORITMIA', {
+          method: 'GET',
+          headers: headers
+        });
+
+        if (response.ok) {
+          const body = await response.json();
+          setResultado(body)
+          // Maneja la respuesta de la solicitud GET aquí
+          console.log('Solicitud GET exitosa', body);
+          // Puedes realizar operaciones con 'data' aquí según tus necesidades
+        } else {
+          // Manejar errores si la solicitud falla
+          console.error('Error en la solicitud GET');
+        }
+      } catch (error) {
+        console.error('Error en la solicitud GET:', error);
+      }
+    };
+    handleGetRequest();
+  }, []);
+
+ 
 const StudentProfile = () => {
     return (
+
 
         <Card className="text-center" style={{ width: '28rem', height: '230px', margin: 'auto' }}>
             <CardHeader className="overflow-visible py-2">
@@ -33,7 +66,27 @@ const StudentProfile = () => {
     );
 };
 
+const EvaluacionEstudiante = () => {
 
+    if (!resultado) {
+        return <p>Cargando...</p>;
+      }
+      const  pruebaTecnica = resultado.data.pruebaTecnica;
+      
+    return (
+        <><h2 className="text-material" style={{ marginBottom: '20px' }}>Combina las habilidadeas a Evaluar</h2>
+        <Card style={{ marginBottom: '20px', marginRight: '20px' }}>
+            <CardBody>
+            <p style={{ whiteSpace: 'pre-line' }}>{pruebaTecnica}</p>
+            </CardBody>
+        </Card>
+        <div style={{ textAlign: 'right'}}>
+                <Button size="lg">Solucionar el desafio</Button>
+            </div>
+            </>
+        
+    );
+};
 
 // Componente para las habilidades a evaluar
 const SkillsToEvaluate = () => {
@@ -73,8 +126,10 @@ const PortfolioGenerator = () => {
 };
 
 
-const Evaluacion = () => {
+
     return (
+
+        
         
         <div className="container-fluid h-100">
             <div className="row h-100">
@@ -86,28 +141,15 @@ const Evaluacion = () => {
                     <PortfolioGenerator />
                 </div>
                 {/* Contenedor a la derecha */}
-                <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center">
-
-
-
-                    <Container className="border border-primary p-3"  maxWidth="lg">
-                            
-                        <h2 className="text-material">Resultados de tus Evaluaciones</h2>
-                        <Card>
-                            <CardBody>
-                                <p>Make beautiful websites regardless of your design experience.</p>
-                            </CardBody>
-                        </Card>
-                        <Button size="lg">
-                            Large
-                        </Button>
-                    </Container>
-
+                <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
+                    <div className="p-5" style={{ maxWidth: 'auto' }}>
+                      
+                       <EvaluacionEstudiante/>                    
+                                          
+                        </div>
                 </div>
             </div>
         </div>
     );
-};
+}
 
-
-export default Evaluacion

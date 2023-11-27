@@ -243,12 +243,7 @@ export default function DashBoardEstudiante() {
                 </Button>
               ))}
             </Box>
-
-
             <Divider className="my-5" />
-
-
-          
             <Box>
             <h2 className="text-material" style={{ marginBottom: '20px' }}>Resultados de tus pruebas anteriores </h2>
             {resusltados.map((item) => (

@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./App.css"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Home from'./pages/Inicio'
+import Home from'./pages/register/Inicio'
 import DashBoard from './layout/dashboard/Dashboard' 
 import {NextUIProvider} from "@nextui-org/react";
 import Evaluacion from "./layout/codigo/Evaluacion"
