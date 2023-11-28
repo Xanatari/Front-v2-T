@@ -66,15 +66,15 @@ const StudentProfile = () => {
     );
 };
 
-const EvaluacionEstudiante = () => {
+if (!resultado) {
+    return <p>Cargando...</p>;
+  }
+  const  pruebaTecnica = resultado.data.pruebaTecnica;
 
-    if (!resultado) {
-        return <p>Cargando...</p>;
-      }
-      const  pruebaTecnica = resultado.data.pruebaTecnica;
+const   EvaluacionEstudiante = () => {
       
     return (
-        <><h2 className="text-material" style={{ marginBottom: '20px' }}>Combina las habilidadeas a Evaluar</h2>
+        <><h2  style={{ marginBottom: '20px' }}>Combina las habilidadeas a Evaluar</h2>
         <Card style={{ marginBottom: '20px', marginRight: '20px' }}>
             <CardBody>
             <p style={{ whiteSpace: 'pre-line' }}>{pruebaTecnica}</p>
