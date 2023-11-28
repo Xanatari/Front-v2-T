@@ -1,13 +1,20 @@
-
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 .contenido-derecha {
-    display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 95vh; 
+    margin: auto;
+  text-align: center;
+  height: 100vh;
     /* Espaciado interno */
-  }
+}
+
+.Auth-form {
+  width: 100%; /* Modifica el ancho máximo del formulario */
+  margin: 0; /* Centra el formulario horizontalmente */
+  background-color: rgb(145, 114, 180); /* Cambia el color de fondo del formulario a blanco */
+  border: 1px solid rgb(94, 40, 156); /* Añade un borde alrededor del formulario */
+  border-radius: 8px; /* Añade esquinas redondeadas al formulario */
+  padding: 0; /* Añade espacio interno alrededor del contenido del formulario */
+}

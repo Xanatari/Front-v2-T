@@ -103,7 +103,7 @@ export default function Home(props) {
   if (authMode === "signin") {
     return (
       <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
-        <form className="Auth-form" onSubmit={(e) => handleLogInSubmit(e)}>
+        <form className="Auth-form bg-light p-4 rounded" onSubmit={(e) => handleLogInSubmit(e)}>
           <div className="Auth-form-content">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
@@ -140,8 +140,8 @@ export default function Home(props) {
             </div>
             <Divider />
             <div className="d-grid gap-2 mt-3">
-              <Button type="submit" className="btn btn-primary" size="lg">
-                Submit
+              <Button type="submit" color="secondary" radius="sm" size="lg">
+                Ingreso
               </Button>
             </div>
             <Divider />
@@ -165,20 +165,20 @@ export default function Home(props) {
               Sign In
             </span>
           </div>
-          <div className="form-group mt-3">
-            <label>Nombres</label>
-            <input
+          <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+            <Input
               type={"text"}
               name="name"
+              label="Name"
               value={name}
               className="form-control mt-1"
-              placeholder="Pepito Pepo"
+              placeholder="Ingresa tu nombre "
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <div className="form-group mt-3">
-            <label>Apellidos</label>
-            <input
+          <div >
+          
+            <Input
               type={"text"}
               name="lastName"
               value={lastName}
@@ -187,9 +187,9 @@ export default function Home(props) {
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
-          <div className="form-group mt-3">
-            <label>Email address</label>
-            <input
+          <div >
+
+            <Input
               type={"text"}
               name="email"
               value={email}
@@ -198,9 +198,9 @@ export default function Home(props) {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="form-group mt-3">
-            <label>Password</label>
-            <input
+          <div >
+
+            <Input
               type={"text"}
               name="password"
               value={password}
@@ -209,9 +209,9 @@ export default function Home(props) {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="form-group mt-3">
-            <label>Facultad</label>
-            <input
+          <div >
+
+            <Input
               type={"text"}
               name="facultad"
               value={facultad}
@@ -220,9 +220,9 @@ export default function Home(props) {
               onChange={(e) => setFacultad(e.target.value)}
             />
           </div>
-          <div className="form-group mt-3">
-            <label>Rol</label>
-            <input
+          <div >
+       
+            <Input
               type={"text"}
               name="rol"
               value={rol}
@@ -231,9 +231,9 @@ export default function Home(props) {
               onChange={(e) => setRol(e.target.value)}
             />
           </div>
-          <div className="form-group mt-3">
-            <label>Especialidad</label>
-            <input
+          <div >
+          
+            <Input
               type={"text"}
               name="especialidad"
               value={especialidad}
@@ -244,7 +244,7 @@ export default function Home(props) {
           </div>
           <div className="d-grid gap-2 mt-3">
             <Button type="submit" className="btn btn-primary" size="lg">
-              Submit
+              Registrar
             </Button>
           </div>
           <p className="text-center mt-2">
