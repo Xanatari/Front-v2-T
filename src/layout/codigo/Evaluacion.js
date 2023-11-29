@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './evaluacion.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
 import { useLocation } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 
 
 export default function EvaluacionEstudiante() {
-
-
-
+    const navigate = useNavigate();
 
     const StudentProfile = () => {
         return (
@@ -40,9 +39,10 @@ export default function EvaluacionEstudiante() {
 
 
 
-    const EvaluacionEstudiante = () => {
+    const EvaluacionEstudianteCodigo = () => {
         const [resultado, setResultado] = useState('');
         const [isLoading, setIsLoading] = useState(true);
+
         const location = useLocation();
         const searchParams = new URLSearchParams(location.search);
 
@@ -50,6 +50,11 @@ export default function EvaluacionEstudiante() {
         const habilidad = searchParams.get('habilidad');
         const user = searchParams.get('user');
         
+        const handleRedirect = () => {
+            navigate(`/codigoEstudiante?user=${user}&prueba=${pruebaId}`);
+           
+          };
+
         useEffect(() => {
             if (!resultado) {
                 const handleGetRequest = async () => {
@@ -92,6 +97,8 @@ export default function EvaluacionEstudiante() {
         if (!resultado) {
             return <p>Cargando...</p>;
         }
+
+        const pruebaId = resultado.data.pruebaId;
         const pruebaTecnica = resultado.data.pruebaTecnica;
 
         return (
@@ -102,7 +109,13 @@ export default function EvaluacionEstudiante() {
                     </CardBody>
                 </Card>
                 <div style={{ textAlign: 'right' }}>
-                    <Button size="lg">Solucionar el desafio</Button>
+                <Button
+                    size="lg"
+                    component={Link}
+                    onClick={handleRedirect}
+                >
+                        Solucionar el desafio
+                        </Button>
                 </div>
             </>
 
@@ -165,7 +178,7 @@ export default function EvaluacionEstudiante() {
                 <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
                     <div className="p-5" style={{ maxWidth: 'auto' }}>
 
-                        <EvaluacionEstudiante />
+                        <EvaluacionEstudianteCodigo />
 
                     </div>
                 </div>

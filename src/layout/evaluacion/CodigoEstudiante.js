@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import './codigo.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
 import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 export default function CodigoEstudianteLayer() {
@@ -116,19 +117,22 @@ export default function CodigoEstudianteLayer() {
     const EvaluacionEstudiante = () => {
 
         const [codigo, setCodigo] = useState('');
-        const [pruebaId, setPruebaId] = useState(0);
+       
         const [resultado, setResultado] = useState(null);
         const [showAdditionalCard, setShowAdditionalCard] = useState(false); // New state
 
-        const { user } = useParams();
-        const { pruedbaid } = useParams();
+        const location = useLocation();
+        const searchParams = new URLSearchParams(location.search);
 
-        setPruebaId(pruedbaid);
-
+        const user = searchParams.get('user');
+        const prueba = searchParams.get('prueba');
+       
         const handleSubmit = async (e) => {
             e.preventDefault();
+            
 
-            const newUsers = { codigo, pruebaId };
+
+            const newUsers = { codigo, prueba };
 
             const headers = {
                 'Content-Type': 'application/json', // Especifica el tipo de contenido si es necesario,
