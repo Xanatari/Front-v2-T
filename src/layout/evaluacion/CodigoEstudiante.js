@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import './codigo.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
 
@@ -39,19 +39,56 @@ export default function CodigoEstudianteLayer() {
 
     // Componente para las habilidades a evaluar
     const SkillsToEvaluate = () => {
+
+        const [tech, setTechData] = useState([]);
+
+        useEffect(() => {
+            const handleGetRequest = async () => {
+              const headers = {
+                'Content-Type': 'application/json', // Puedes especificar los headers si es necesario
+              };
+        
+              try {
+                const response = await fetch('http://localhost:8080/especialidades/2', {
+                  method: 'GET',
+                  headers: headers
+                });
+        
+                if (response.ok) {
+                  const body = await response.json();
+                  setTechData(body.data || []);
+                  // Maneja la respuesta de la solicitud GET aquí
+                  console.log('Solicitud GET exitosa', body);
+                  // Puedes realizar operaciones con 'data' aquí según tus necesidades
+                } else {
+                  // Manejar errores si la solicitud falla
+                  console.error('Error en la solicitud GET');
+                }
+              } catch (error) {
+                console.error('Error en la solicitud GET:', error);
+              }
+            };
+            handleGetRequest();
+          }, []);
         return (
-            <Card className="text-center" style={{ width: '28rem', height: '230px', margin: 'auto' }}>
+            <Card className="text-center" style={{ width: '28rem', height: 'auto', margin: 'auto' }}>
                 <CardHeader>
                     <h4 className="text-material-navbar">Especialidad del Estudiante</h4>
                     <h4 className="text-material-navbar">Habilidades a Evaluar</h4>
                 </CardHeader>
                 <Divider />
                 <CardBody>
-                    <Button color="secondary" radius="sm">Java</Button>
-                    <Button color="secondary" radius="sm">SQL</Button>
-                    <Button color="secondary" radius="sm">AWS</Button>
-                    <Button color="secondary" radius="sm">Algoritmia</Button>
-                </CardBody>
+        {tech.map((item) => (
+                <Button
+                  key={item.id}
+                  className="custom-button"
+                  style={{ marginRight: '10px', marginBottom: '10px' }}
+                  size="sm"
+                >
+                  {item.nombre}
+                </Button>
+              ))}
+        </CardBody>
             </Card>
 
         );

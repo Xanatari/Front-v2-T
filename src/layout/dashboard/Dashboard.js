@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 import './dashboar.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
+
 
 export default function DashBoardEstudiante() {
 
@@ -14,17 +16,25 @@ export default function DashBoardEstudiante() {
 
   const [resusltados, setResultados] = useState([]);
 
+  const location = useLocation();
+  const userData = location.state?.userData;
+
   useEffect(() => {
+
+   
     const handleGetRequest = async () => {
       const headers = {
         'Content-Type': 'application/json', // Puedes especificar los headers si es necesario
       };
 
       try {
-        const response = await fetch('http://localhost:8080/especialidades/estudent-info/4', {
-          method: 'GET',
-          headers: headers
-        });
+        if (userData && userData.userId) {
+          console.log(userData.userId);
+          const response = await fetch(`http://localhost:8080/especialidades/estudent-info/${userData.userId}`, {
+            method: 'GET',
+            headers: headers
+          });
+        
 
         if (response.ok) {
           const body = await response.json();
@@ -36,6 +46,7 @@ export default function DashBoardEstudiante() {
           // Manejar errores si la solicitud falla
           console.error('Error en la solicitud GET');
         }
+      }
       } catch (error) {
         console.error('Error en la solicitud GET:', error);
       }

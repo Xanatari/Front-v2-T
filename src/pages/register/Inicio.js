@@ -1,9 +1,12 @@
 import React, { useState } from "react"
 import Alert from 'react-bootstrap/Alert'
-import { Divider, CardHeader, Button, Input, Image, Card, CardBody } from "@nextui-org/react";
+import { Divider,  Button, Input   } from "@nextui-org/react";
 import './inicio.css';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Home(props) {
+  const navigate = useNavigate();
   let [authMode, setAuthMode] = useState("signin")
 
   const handleCloseAlert = () => {
@@ -85,9 +88,12 @@ export default function Home(props) {
       })
 
       if (response.ok) {
+        const body = await response.json();
+        console.log('data::::' , body.data)
+        navigate('/dashboard', { state: { userData: body.data } });
         // La solicitud fue exitosa, puedes manejar la respuesta aquí
         console.log('Solicitud POST exitosa');
-
+        
       } else {
         // Manejar errores si la solicitud falla
         console.error('Error en la solicitud POST');
