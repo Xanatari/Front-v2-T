@@ -110,7 +110,7 @@ export default function Home(props) {
     return (
       <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
         <form className="Auth-form bg-light p-4 rounded" onSubmit={(e) => handleLogInSubmit(e)}>
-          <div className="Auth-form-content">
+          <div className="Auth-form-content text-center">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
               No te has registrado aun ?{" "}

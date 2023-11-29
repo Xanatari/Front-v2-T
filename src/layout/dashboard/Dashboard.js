@@ -180,14 +180,14 @@ export default function DashBoardEstudiante() {
         </CardHeader>
         <Divider />
         <CardBody>
-        {tech.map((item) => (
+        {tech.map((t) => (
                 <Button
-                  key={item.id}
+                  key={t.id}
                   className="custom-button"
                   style={{ marginRight: '10px', marginBottom: '10px' }}
                   size="sm"
                 >
-                  {item.nombre}
+                  {t.nombre}
                 </Button>
               ))}
         </CardBody>
@@ -257,10 +257,10 @@ export default function DashBoardEstudiante() {
             <Divider className="my-5" />
             <Box>
             <h2 className="text-material" style={{ marginBottom: '20px' }}>Resultados de tus pruebas anteriores </h2>
-            {resusltados.map((item) => (
+            {resusltados.map((r) => (
                  <Card>
                  <CardBody>
-                   <p>{item.resultado}</p>
+                   <p>{r.resultado}</p>
                  </CardBody>
                </Card>
               ))}
