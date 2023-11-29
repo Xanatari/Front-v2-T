@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './evaluacion.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
+import { useLocation } from 'react-router-dom';
 
 
 export default function EvaluacionEstudiante() {
@@ -42,6 +43,13 @@ export default function EvaluacionEstudiante() {
     const EvaluacionEstudiante = () => {
         const [resultado, setResultado] = useState('');
         const [isLoading, setIsLoading] = useState(true);
+        const location = useLocation();
+        const searchParams = new URLSearchParams(location.search);
+
+        const tecnologia = searchParams.get('tecnologia');
+        const habilidad = searchParams.get('habilidad');
+        const user = searchParams.get('user');
+        
         useEffect(() => {
             if (!resultado) {
                 const handleGetRequest = async () => {
@@ -50,7 +58,7 @@ export default function EvaluacionEstudiante() {
                     };
 
                     try {
-                        const response = await fetch('http://localhost:8080/pruebas/prueba/4?habilitie=AWS&tech=ALGORITMIA', {
+                        const response = await fetch(`http://localhost:8080/pruebas/prueba/${user}?habilitie=${tecnologia}&tech=${habilidad}`, {
                             method: 'GET',
                             headers: headers
                         });

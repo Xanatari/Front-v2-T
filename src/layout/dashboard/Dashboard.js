@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate} from 'react-router-dom';
+
 
 import './dashboar.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
@@ -7,6 +8,8 @@ import Box from '@mui/material/Box';
 
 
 export default function DashBoardEstudiante() {
+
+  const navigate = useNavigate();
 
   const [studentData, setStudentData] = useState('');
 
@@ -16,8 +19,21 @@ export default function DashBoardEstudiante() {
 
   const [resusltados, setResultados] = useState([]);
 
+  const [tecnologiaSeleccionada, setTecnologiaSeleccionada] = useState('');
+  const [habilidadSeleccionada, setHabilidadSeleccionada] = useState('');
+
   const location = useLocation();
   const userData = location.state?.userData;
+
+  const handleRedirect = () => {
+    // Aquí maneja la lógica de redirección con los valores seleccionados
+    // Puedes ajustar esto según tus necesidades
+    if (tecnologiaSeleccionada && habilidadSeleccionada) {
+      navigate(`/evaluacion?tecnologia=${tecnologiaSeleccionada}&habilidad=${habilidadSeleccionada}&user=${userData.userId}`);
+    } else {
+      // Muestra algún mensaje de error si es necesario
+    }
+  };
 
   useEffect(() => {
 
@@ -141,6 +157,9 @@ export default function DashBoardEstudiante() {
     handleGetRequest();
   }, []);
 
+
+
+
   const StudentProfile = () => {
     // Llamar a la función para hacer la solicitud GET
 
@@ -231,9 +250,10 @@ export default function DashBoardEstudiante() {
               {tech.map((item) => (
                 <Button
                   key={item.id}
-                  className="custom-button"
+                  className={`custom-button ${tecnologiaSeleccionada === item.nombre ? 'selected' : ''}`}
                   style={{ marginRight: '10px', marginBottom: '10px' }}
                   size="lg"
+                  onClick={() => setTecnologiaSeleccionada(item.nombre)}
                 >
                   {item.nombre}
                 </Button>
@@ -246,9 +266,10 @@ export default function DashBoardEstudiante() {
               {habilidades.map((item) => (
                 <Button
                   key={item.id}
-                  className="custom-button"
+                  className={`custom-button ${habilidadSeleccionada === item.nombre ? 'selected' : ''}`}
                   style={{ marginRight: '10px', marginBottom: '10px' }}
                   size="lg"
+                  onClick={() => setHabilidadSeleccionada(item.nombre)}
                 >
                   {item.nombre}
                 </Button>
@@ -265,6 +286,11 @@ export default function DashBoardEstudiante() {
                </Card>
               ))}
             </Box>
+            <div className="my-5">
+        <Button onClick={handleRedirect}>
+          Ir a Evaluación
+        </Button>
+      </div>
 
           </div>
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import './codigo.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
+import { useParams } from 'react-router-dom';
 
 
 export default function CodigoEstudianteLayer() {
@@ -115,10 +116,14 @@ export default function CodigoEstudianteLayer() {
     const EvaluacionEstudiante = () => {
 
         const [codigo, setCodigo] = useState('');
-        const [pruebaId, setPruebaId] = useState(36);
+        const [pruebaId, setPruebaId] = useState(0);
         const [resultado, setResultado] = useState(null);
         const [showAdditionalCard, setShowAdditionalCard] = useState(false); // New state
 
+        const { user } = useParams();
+        const { pruedbaid } = useParams();
+
+        setPruebaId(pruedbaid);
 
         const handleSubmit = async (e) => {
             e.preventDefault();
@@ -132,7 +137,7 @@ export default function CodigoEstudianteLayer() {
             console.log("Cuerpo del JSON:", JSON.stringify(newUsers));
             console.log("Cabeceras:", headers);
             try {
-                const response = await fetch('http://localhost:8080/pruebas/prueba/4/codigo', {
+                const response = await fetch(`http://localhost:8080/pruebas/prueba/${user}/codigo`, {
                     method: 'POST',
                     body: JSON.stringify(newUsers),
                     headers: headers
