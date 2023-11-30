@@ -18,3 +18,7 @@
   border-radius: 8px; /* Añade esquinas redondeadas al formulario */
   padding: 0; /* Añade espacio interno alrededor del contenido del formulario */
 }
+
+.imagen-derecha {
+  max-width: 80px; 
+}

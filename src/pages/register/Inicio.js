@@ -109,6 +109,9 @@ export default function Home(props) {
   if (authMode === "signin") {
     return (
       <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
+          <div className="imagen-derecha">
+            <img src="./LogoVertical.png"alt="Descripción de la imagen" className="img-fluid" />
+          </div>
         <form className="Auth-form bg-light p-4 rounded" onSubmit={(e) => handleLogInSubmit(e)}>
           <div className="Auth-form-content text-center">
             <h3 className="Auth-form-title">Sign In</h3>
