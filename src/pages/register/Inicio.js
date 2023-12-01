@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Alert from 'react-bootstrap/Alert'
-import { Divider,  Button, Input   } from "@nextui-org/react";
+import { Divider, Button, Input } from "@nextui-org/react";
 import './inicio.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -89,11 +89,11 @@ export default function Home(props) {
 
       if (response.ok) {
         const body = await response.json();
-        console.log('data::::' , body.data)
+        console.log('data::::', body.data)
         navigate('/dashboard', { state: { userData: body.data } });
         // La solicitud fue exitosa, puedes manejar la respuesta aquí
         console.log('Solicitud POST exitosa');
-        
+
       } else {
         // Manejar errores si la solicitud falla
         console.error('Error en la solicitud POST');
@@ -109,9 +109,9 @@ export default function Home(props) {
   if (authMode === "signin") {
     return (
       <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
-          <div className="imagen-derecha">
-            <img src="./LogoVertical.png"alt="Descripción de la imagen" className="img-fluid" />
-          </div>
+        <div className="imagen-derecha ">
+          <img src="./LogoVertical.png" alt="Descripción de la imagen" className="img-fluid" />
+        </div>
         <form className="Auth-form bg-light p-4 rounded" onSubmit={(e) => handleLogInSubmit(e)}>
           <div className="Auth-form-content text-center">
             <h3 className="Auth-form-title">Sign In</h3>
@@ -130,17 +130,17 @@ export default function Home(props) {
                 placeholder="Ingresa con tu correo intstitucional"
                 defaultValue="usuario-estudiante@unipiloto.edu.co"
                 onClear={() => console.log("input cleared")}
-                className="max-w-xs"
+                className="mx-auto mb-4 "
                 name="userName"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
               />
-             <Input
+              <Input
                 isClearable
                 label="Contraseña"
                 variant="bordered"
                 type="password"
-                className="max-w-xs"
+                className="mx-auto"
                 placeholder="Ingresa tu contraseña"
                 name="password"
                 value={password}
@@ -149,12 +149,12 @@ export default function Home(props) {
             </div>
             <Divider />
             <div className="d-grid gap-2 mt-3">
-              <Button type="submit" color="secondary" radius="sm" size="lg">
-                Ingreso
+            <Button type="submit"  radius="full" className="bg-gradient-to-tr from-purple-500 to-purple-600 text-white shadow-lg">
+              Ingreso
               </Button>
             </div>
             <Divider />
-            <p className="text-center mt-2">
+            <p className="text-center mt-3">
               Olvidaste tu contraseña <a href="#">Deseas Cambiarla ?</a>
             </p>
           </div>
@@ -164,9 +164,9 @@ export default function Home(props) {
   }
 
   return (
-    <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
+    <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center bg-purple-300" >
       <form className="Auth-form" onSubmit={(e) => handleSubmit(e)}>
-        <div className="Auth-form-content">
+        <div className="Auth-form-content bg-violet-200">
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="text-center">
             Already registered?{" "}
@@ -174,85 +174,80 @@ export default function Home(props) {
               Sign In
             </span>
           </div>
-          <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+
+          <div className="form-group mt-3 align">
             <Input
               type={"text"}
               name="name"
               label="Name"
               value={name}
-              className="form-control mt-1"
+              className="mx-auto mb-4"
               placeholder="Ingresa tu nombre "
               onChange={(e) => setName(e.target.value)}
             />
-          </div>
-          <div >
-          
+
             <Input
               type={"text"}
               name="lastName"
               value={lastName}
-              className="form-control mt-1"
-              placeholder="Uribe Petro"
+              label="Apellidos"
+              className="mx-auto mb-4"
+              placeholder="Ingresa tu apellido"
               onChange={(e) => setLastName(e.target.value)}
             />
-          </div>
-          <div >
 
             <Input
               type={"text"}
               name="email"
               value={email}
-              className="form-control mt-1"
-              placeholder="Email Address"
+              label= "Correo"
+              className="mx-auto mb-4"
+              placeholder="Direccion de Correo Electronico"
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
-          <div >
 
             <Input
               type={"text"}
               name="password"
               value={password}
-              className="form-control mt-1"
-              placeholder="Password"
+              className="mx-auto mb-4"
+              placeholder="Ingresa la contrsaeña que quieras asignar"
+              label="Controseña"
               onChange={(e) => setPassword(e.target.value)}
             />
-          </div>
-          <div >
 
             <Input
               type={"text"}
               name="facultad"
               value={facultad}
-              className="form-control mt-1"
-              placeholder="Facultad"
+              className="mx-auto mb-4"
+              label="Facultad"
+              placeholder="Facultad a la que perteneces"
               onChange={(e) => setFacultad(e.target.value)}
             />
-          </div>
-          <div >
-       
+
             <Input
               type={"text"}
               name="rol"
               value={rol}
-              className="form-control mt-1"
-              placeholder="Rol"
+              className="mx-auto mb-4"
+              placeholder="Rol que quieres hacer !!!"
+              label="Rol"
               onChange={(e) => setRol(e.target.value)}
             />
-          </div>
-          <div >
-          
+
             <Input
               type={"text"}
               name="especialidad"
               value={especialidad}
-              className="form-control mt-1"
-              placeholder="Especialidad"
+              className="mx-auto"
+              placeholder="Especialidad quieres hacer"
+              label="Especialidad"
               onChange={(e) => setEspecialidad(e.target.value)}
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <Button type="submit" className="btn btn-primary" size="lg">
+            <Button radius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg">
               Registrar
             </Button>
           </div>

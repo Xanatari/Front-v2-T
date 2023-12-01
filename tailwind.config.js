@@ -5,7 +5,12 @@ module.exports = {
   content: ["./src/**/*.{html,js}",
   "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        'comic-sans': ['Comic Sans MS', 'cursive']
+      }
+
+    },
   },
   darkMode: "class",
   plugins: [nextui()],

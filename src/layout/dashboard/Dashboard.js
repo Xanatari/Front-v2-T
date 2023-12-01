@@ -84,7 +84,7 @@ export default function DashBoardEstudiante() {
 
         if (response.ok) {
           const body = await response.json();
-          setTechData(body.data || []);
+          setHabilidades(body.data || []);
           // Maneja la respuesta de la solicitud GET aquí
           console.log('Solicitud GET exitosa', body);
           // Puedes realizar operaciones con 'data' aquí según tus necesidades
@@ -113,7 +113,7 @@ export default function DashBoardEstudiante() {
 
         if (response.ok) {
           const body = await response.json();
-          setHabilidades(body.data || []);
+          setTechData(body.data || []);
           // Maneja la respuesta de la solicitud GET aquí
           console.log('Solicitud GET exitosa', body);
           // Puedes realizar operaciones con 'data' aquí según tus necesidades
@@ -181,9 +181,9 @@ export default function DashBoardEstudiante() {
         </CardHeader>
         <Divider />
         <CardBody>
-          <p>{nameLastName}</p>
-          <p>{facultad}</p>
-          <p>{especialidad}</p>
+          <p className='font-sans-serif'>{nameLastName}</p>
+          <p className='font-sans-serif'>{facultad}</p>
+          <p className='font-csans-serif' >{especialidad}</p>
         </CardBody>
 
       </Card>
@@ -195,7 +195,7 @@ export default function DashBoardEstudiante() {
     return (
       <Card className="text-center" style={{ width: '28rem', height: 'auto', margin: 'auto' }}>
         <CardHeader>
-          <h4 className="text-material-navbar">Especialidad del Estudiante</h4>
+          <p className='font-sans-serif text-lg'>Especialidad del Estudiante</p>
         </CardHeader>
         <Divider />
         <CardBody>
@@ -219,9 +219,9 @@ export default function DashBoardEstudiante() {
   const PortfolioGenerator = () => {
     return (
       <div className="caja-generar-portafolio text-center">
-        <h1 className="text-material">Generar Portafolio Estudiante</h1>
+        <p className="font-sans-serif text-lg">Generar Portafolio Estudiante</p>
         <div>
-          <Button className="custom-button"
+          <Button radius="full" className="bg-gradient-to-tr from-red-400 to-red-600 text-white shadow-lg font-sans-serif"
                   style={{ marginRight: '15px', marginBottom: '15px' }}
                   size="sm">
             Generate PDF
@@ -233,7 +233,7 @@ export default function DashBoardEstudiante() {
 
 
   return (
-    <div className="container-fluid h-100">
+    <div className="container-fluid h-100diegog">
       <div className="row h-100">
         {/* Navbar */}
         <div className="navbar col-3 bg-dark text-light p-3">
@@ -246,11 +246,11 @@ export default function DashBoardEstudiante() {
         <div className="contenido-derecha col-9 d-flex align-items-center justify-content-center p-3 text-center" >
             <div className="p-5" style={{ maxWidth: 'auto' }}>
             <Box>
-            <h2 className="text-material" style={{ marginBottom: '20px' }}>Tecnologías o Lenguajes que quieres Evaluar</h2>
+            <p className="font-sans-serif font-bold text-lg text-violet-500 uppercase" style={{ marginBottom: '20px' }}>Tecnologías o Lenguajes que quieres Evaluar</p>
               {tech.map((item) => (
                 <Button
                   key={item.id}
-                  className={`custom-button ${tecnologiaSeleccionada === item.nombre ? 'selected' : ''}`}
+                  className={`custom-button font-sans-serif ${tecnologiaSeleccionada === item.nombre ? 'selected' : ''}`}
                   style={{ marginRight: '10px', marginBottom: '10px' }}
                   size="lg"
                   onClick={() => setTecnologiaSeleccionada(item.nombre)}
@@ -262,7 +262,7 @@ export default function DashBoardEstudiante() {
             <Divider className="my-5" />
 
             <Box>
-            <h2 className="text-material" style={{ marginBottom: '20px' }}>Combina las habilidadeas a Evaluar</h2>
+            <p className=" font-bold text-lg text-violet-500 uppercase"  style={{ marginBottom: '20px' }}>Combina las habilidadeas a Evaluar</p>
               {habilidades.map((item) => (
                 <Button
                   key={item.id}
@@ -277,7 +277,7 @@ export default function DashBoardEstudiante() {
             </Box>
             <Divider className="my-5" />
             <Box>
-            <h2 className="text-material" style={{ marginBottom: '20px' }}>Resultados de tus pruebas anteriores </h2>
+            <p className="font-sans-serif font-bold text-lg text-violet-500 uppercase"  style={{ marginBottom: '20px' }}>Resultados de tus pruebas anteriores </p>
             {resusltados.map((r) => (
                  <Card>
                  <CardBody>
@@ -287,7 +287,7 @@ export default function DashBoardEstudiante() {
               ))}
             </Box>
             <div className="my-5">
-        <Button onClick={handleRedirect}>
+        <Button className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg " onClick={handleRedirect}>
           Ir a Evaluación
         </Button>
       </div>
