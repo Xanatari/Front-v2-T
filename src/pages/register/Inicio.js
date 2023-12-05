@@ -112,7 +112,7 @@ export default function Home(props) {
         <div className="imagen-derecha ">
           <img src="./LogoVertical.png" alt="Descripción de la imagen" className="img-fluid" />
         </div>
-        <form className="Auth-form bg-light p-4 rounded" onSubmit={(e) => handleLogInSubmit(e)}>
+        <form className="Auth-form bg-light p-5 rounded" onSubmit={(e) => handleLogInSubmit(e)}>
           <div className="Auth-form-content text-center">
             <h3 className="Auth-form-title">Sign In</h3>
             <div className="text-center">
@@ -149,7 +149,7 @@ export default function Home(props) {
             </div>
             <Divider />
             <div className="d-grid gap-2 mt-3">
-            <Button type="submit"  radius="full" className="bg-gradient-to-tr from-purple-500 to-purple-600 text-white shadow-lg">
+            <Button type="submit" radius="full" className="bg-gradient-to-tr from-purple-500 to-purple-600 text-white shadow-lg">
               Ingreso
               </Button>
             </div>

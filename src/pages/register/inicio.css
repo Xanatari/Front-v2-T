@@ -6,8 +6,8 @@
 
 .contenido-derecha {
     margin: auto;
-  text-align: center;
-  height: 100vh;
+    text-align: center;
+    height: 100vh;
     /* Espaciado interno */
 }
 
@@ -21,7 +21,7 @@
 }
 
 .imagen-derecha {
-  max-width: 300px; 
+  max-width: 350px; 
 }
 
 p {

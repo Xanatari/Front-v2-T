@@ -48,19 +48,3 @@ label {
   background-color: brown;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/* Aplica Roboto como la fuente predeterminada para el cuerpo del documento */
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Puedes utilizar la fuente Roboto en otros estilos según sea necesario */
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-}
-p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold;
-}
