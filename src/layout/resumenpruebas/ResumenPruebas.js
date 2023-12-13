@@ -3,6 +3,7 @@ import React, { useState, useEffect} from 'react';
 import './resumenpruebas.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
 import { useLocation } from 'react-router-dom';
+import Box from '@mui/material/Box';
 
 export default function CodigoEstudianteLayer() {
 
@@ -15,7 +16,16 @@ export default function CodigoEstudianteLayer() {
             <><p style={{ marginBottom: '20px' }} className="font-sans-serif text-lg">Ingresa la solucion que creas pertiente al desafio</p>
 
                 <form  style={{ marginBottom: '20px' }}>
-                    <textarea name="content" rows={20} cols={200} />
+                <Box>
+            
+        
+                 <Card>
+                 <CardBody>
+                   <p>XD Resultados</p>
+                 </CardBody>
+               </Card>
+          
+            </Box>
 
                     <div style={{ textAlign: 'right' }}>
                         <Button tradius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg"  size="lg">Enviar Solución</Button>
