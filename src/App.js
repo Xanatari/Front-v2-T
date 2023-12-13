@@ -6,6 +6,7 @@ import DashBoard from './layout/dashboard/Dashboard'
 import {NextUIProvider} from "@nextui-org/react";
 import Evaluacion from "./layout/codigo/Evaluacion"
 import CodigoEstudiante from './layout/evaluacion/CodigoEstudiante' 
+import ResumenEstudiante from './layout/resumenpruebas/ResumenPruebas'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/dashboard" element={<DashBoard />} />
       <Route path="/evaluacion" element={<Evaluacion />} />
       <Route path="/codigoEstudiante" element={<CodigoEstudiante />} />
+      <Route path="/resumenEvaluacion" element={<ResumenEstudiante />} />
     </Routes>
   </BrowserRouter>
   </NextUIProvider>

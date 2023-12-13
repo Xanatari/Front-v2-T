@@ -1,4 +1,8 @@
 
+import React, { useState, useEffect} from 'react';
+import './resumenpruebas.css';
+import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
+import { useLocation } from 'react-router-dom';
 
 export default function CodigoEstudianteLayer() {
 
@@ -10,8 +14,8 @@ export default function CodigoEstudianteLayer() {
             
             <><p style={{ marginBottom: '20px' }} className="font-sans-serif text-lg">Ingresa la solucion que creas pertiente al desafio</p>
 
-                <form onSubmit={(e) => handleSubmit(e)} style={{ marginBottom: '20px' }}>
-                    <textarea value={codigo} onChange={(e) => setCodigo(e.target.value)} name="content" rows={20} cols={200} />
+                <form  style={{ marginBottom: '20px' }}>
+                    <textarea name="content" rows={20} cols={200} />
 
                     <div style={{ textAlign: 'right' }}>
                         <Button tradius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg"  size="lg">Enviar Solución</Button>
@@ -21,17 +25,6 @@ export default function CodigoEstudianteLayer() {
                         <Button tradius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg"  size="lg">Volver al DashBoard</Button>
                     </div>
                 </form>
-
-                {showAdditionalCard && (
-                    <Card style={{ marginBottom: '20px', marginRight: '20px' }}>
-                        <CardBody>
-                            {/* Assuming `pruebaTecnica` is a variable you have */}
-                            <p style={{ whiteSpace: 'pre-line' }}>{resultado.data.resultadoEvaluacion}</p>
-                        </CardBody>
-                    </Card>
-                )}
-
-                
             </>
 
         );
