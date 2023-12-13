@@ -1,13 +1,12 @@
 import React, { useState, useEffect} from 'react';
 import './codigo.css';
 import { Divider, CardHeader, Button, Image, Card, CardBody } from "@nextui-org/react";
-import { useParams } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
 
+
+
 export default function CodigoEstudianteLayer() {
-
-
 
     const StudentProfile = () => {
         return (
@@ -113,6 +112,8 @@ export default function CodigoEstudianteLayer() {
     };
 
 
+
+
     const EvaluacionEstudiante = () => {
 
         const [codigo, setCodigo] = useState('');
@@ -177,7 +178,7 @@ export default function CodigoEstudianteLayer() {
                     </div>
 
                     <div style={{ textAlign: 'left' }}>
-                        <Button tradius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg"  size="lg">Volver al DashBoard</Button>
+                        <Button tradius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg"  size="lg" >Volver al DashBoard</Button>
                     </div>
                 </form>
 
