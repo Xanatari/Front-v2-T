@@ -174,7 +174,7 @@ export default function CodigoEstudianteLayer() {
                     <textarea value={codigo} onChange={(e) => setCodigo(e.target.value)} name="content" rows={20} cols={200} />
 
                     <div style={{ textAlign: 'right' }}>
-                        <Button tradius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg"  size="lg">Enviar Solución</Button>
+                        <Button tradius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg" type="submit"size="lg">Enviar Solución</Button>
                     </div>
 
                     <div style={{ textAlign: 'left' }}>
