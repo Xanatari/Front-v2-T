@@ -247,7 +247,7 @@ export default function Home(props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <Button radius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg">
+            <Button  onClick={(e) => handleSubmit(e)} radius="full" className="bg-gradient-to-tr from-blue-300 to-violet-800 text-white shadow-lg">
               Registrar
             </Button>
           </div>
